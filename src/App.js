@@ -12,6 +12,9 @@ class App extends React.Component{
     this.state={
       newItem: "",
       list : []
+    
+ 
+      
     }
     
    
@@ -37,6 +40,7 @@ deleteItem(id){
   const list=[...this.state.list];
   const updatedlist= list.filter(item =>item.id !==id);
   this.setState({list:updatedlist})
+  
 }
 updateInput(input){
   this.setState({newItem:input});
@@ -52,7 +56,7 @@ state = {
 			
       
       <div className="container">
-        
+              
         <br/><center>
         <input type="text"
         className="input-text"
@@ -67,6 +71,12 @@ state = {
         onClick={()=>this.addItem(this.state.newItem)}
         disabled={!this.state.newItem.length}
           >Tweet</button></center>
+          <input type="datetime-local" 
+      className="tdate"
+     
+      required
+      value={this.state.date}
+        />
         <div className="list">
           <ul>
             {this.state.list.map(item=>{
@@ -92,7 +102,8 @@ state = {
           </ul>
         </div>
       </div>
-      
+    
+
       </div>
       
     )
